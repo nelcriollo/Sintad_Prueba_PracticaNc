@@ -1,19 +1,16 @@
 package com.sintad.backendpruebapractica.usuario.domain.model;
 
 
-
-import com.sintad.backendpruebapractica.entidad.domain.model.Entidad;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sintad.backendpruebapractica.entidad.domain.model.Entidad;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name = "tb_usuario")
 public class Usuario {
@@ -32,11 +29,16 @@ public class Usuario {
     @Column(name = "password_usuario", length = 350, nullable = false)
     private String password;
 
-    @Column(name = "estado")
+    @Column(name = "estado",length = 1, nullable = false)
     private int estado;
 
     //realación de uno a muchos usuario y entidad
     @JsonIgnore
     @OneToMany(mappedBy = "idEntidad", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Entidad> entidades;
+
+
+    public Usuario() {
+        this.estado = 1; // Valor por defecto
+    }
 }

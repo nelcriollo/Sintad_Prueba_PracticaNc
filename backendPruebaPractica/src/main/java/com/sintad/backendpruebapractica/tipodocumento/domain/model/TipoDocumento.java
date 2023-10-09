@@ -1,8 +1,8 @@
 package com.sintad.backendpruebapractica.tipodocumento.domain.model;
 
 
-import com.sintad.backendpruebapractica.entidad.domain.model.Entidad;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sintad.backendpruebapractica.entidad.domain.model.Entidad;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
