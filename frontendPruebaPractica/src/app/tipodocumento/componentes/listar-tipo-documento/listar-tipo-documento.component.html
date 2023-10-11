@@ -1,0 +1,29 @@
+<div [style.display]="'flex'" [style.justifyContent]="'center'" [style.alignItems]="'center'">
+    <h1 class="fw-bold mb-0">Lista de  Tipos de Documentos</h1>
+
+  </div>
+  <button (click)="nuevoTipoDocumento()" class="bg-body border-0 m-0 p-0"><mat-icon class="mt-1 mb-0">add_box</mat-icon></button>
+  <table class="table table-striped mt-5">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Tipo Documento</th>
+        <th scope="col">Estado</th>
+        <th [width]="'260px'">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tipoDocumento of tiposDocumento">
+        <th scope="row">{{tipoDocumento.idTipoDocumento}}</th>
+        <td>{{tipoDocumento.nombre}}</td>
+        <td>
+          <span *ngIf="tipoDocumento.estado === 0">Inactivo</span>
+          <span *ngIf="tipoDocumento.estado === 1">Activo</span>
+        </td>
+        <td>
+            <button class="bg-body" (click)="editarTipoDocumento(tipoDocumento)"><mat-icon class="text-success">drive_file_rename_outline</mat-icon></button>&nbsp;&nbsp;
+              <button class="bg-body" (click)="eliminarTipoDocumento(tipoDocumento)"><mat-icon class="text-danger">delete_forever</mat-icon></button>
+            </td>
+      </tr>
+    </tbody>
+  </table>

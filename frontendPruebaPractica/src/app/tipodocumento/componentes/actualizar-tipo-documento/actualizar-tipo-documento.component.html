@@ -1,0 +1,31 @@
+<div class="container col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h3>Actualizar Tipo de Documentos</h3>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="form-group">
+            <label for="idTipoDocumento">Id Tipo de Documento:</label>
+            <input type="number" placeholder="idTipoDocumento" [(ngModel)]="tipoDocumento.idTipoDocumento" name="idTipoDocumento"
+              required readonly class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="nombre">Nombre Tipo de Documento:</label>
+            <input type="text" id="nombre" [(ngModel)]="tipoDocumento.nombre" name="nombre"
+              class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="estado">Estado:</label>
+            <mat-select id="estado" [(ngModel)]="tipoDocumento.estado" name="estado" required class="form-control">
+              <mat-option [value]="0">Activo</mat-option>
+              <mat-option [value]="1">Inactivo</mat-option>
+            </mat-select>
+          </div>
+          <div class="m-3">
+            <button class="bg-body" (click)="actualizarTipoDocumento(tipoDocumento)"><mat-icon class="text-primary ">save</mat-icon> </button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>

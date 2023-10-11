@@ -1,0 +1,23 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { RegistrarEntidadComponent } from './registrar-entidad.component';
+
+describe('RegistrarEntidadComponent', () => {
+  let component: RegistrarEntidadComponent;
+  let fixture: ComponentFixture<RegistrarEntidadComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ RegistrarEntidadComponent ]
+    })
+    .compileComponents();
+
+    fixture = TestBed.createComponent(RegistrarEntidadComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

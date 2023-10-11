@@ -38,7 +38,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
       try {
 
       authCredentials = new  ObjectMapper().readValue(request.getInputStream(), AuthenCredentials.class);
-          username = authCredentials.getLogin();
+          username = authCredentials.getUsername();
           password = authCredentials.getPassword();
       System.out.println("opteniendo las credenciales: " + authCredentials);
 
@@ -66,10 +66,10 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
         String token = tokenUtil.generateToken(user.getUsername());
 
-      /*  response.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-        response.setHeader("Access-Control-Allow-Credentials", "true");*/
+       response.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
+        response.setHeader("Access-Control-Allow-Credentials", "true");
 
-        // Agregar el encabezado "Authorization" con el token en la respuesta
+        //Agregar el encabezado "Authorization" con el token en la respuesta
         response.addHeader("Authorization", "Bearer " + token);
         
         Map<String, Object> httpResponse = new HashMap<>();

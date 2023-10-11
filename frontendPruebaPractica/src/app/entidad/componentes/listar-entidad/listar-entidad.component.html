@@ -1,0 +1,42 @@
+<div [style.display]="'flex'" [style.justifyContent]="'center'" [style.alignItems]="'center'" class="mt-2">
+    <h1 class="fw-bold mb-0">Lista de  entidades</h1>
+  </div>
+  <button (click)="nuevaEntidad()"  class="bg-body border-0 m-0 p-0"><mat-icon class="mt-1 mb-0">add_box</mat-icon></button>
+  <table class="table table-responsive mt-5">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">nroDocumento</th>
+        <th scope="col">razonSocial</th>
+        <th scope="col">nombreComercial</th>
+        <th scope="col">direccion</th>
+        <th scope="col">telefono</th>
+        <th scope="col">TipoDoc</th>
+        <th scope="col">TipoContrib</th>
+        <th scope="col">Usuario</th>
+        <th scope="col">Estado</th>
+        <th scope="col" [width]="'260px'">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let entidad of entidades">
+        <th scope="row">{{entidad.idEntidad}}</th>
+        <td>{{entidad.nroDocumento}}</td>
+        <td>{{entidad.razonSocial}}</td>
+        <td>{{entidad.nombreComercial}}</td>
+        <td>{{entidad.direccion}}</td>
+        <td>{{entidad.telefono}}</td>
+        <td>{{entidad.tipoDocumento.nombre}}</td>
+        <td>{{entidad.tipoContribuyente.nombre}}</td>
+        <td>
+          <span *ngIf="entidad.estado === 0">Inactivo</span>
+          <span *ngIf="entidad.estado === 1">activo</span>
+        </td>
+       
+        <td>
+        <button class="bg-body" (click)="editarEntidad(entidad)"><mat-icon class="text-success">drive_file_rename_outline</mat-icon></button>&nbsp;&nbsp;
+          <button class="bg-body" (click)="eliminarEntidad(entidad)"><mat-icon class="text-danger">delete_forever</mat-icon></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

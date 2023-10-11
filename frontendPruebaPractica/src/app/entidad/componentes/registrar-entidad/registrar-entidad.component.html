@@ -1,0 +1,67 @@
+<div class="container col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h3>Registrar Entidad</h3>
+      </div>
+      <div class="card-body">
+        <form>
+  
+          <div class="form-group">
+            <label for="">Tipo de documento</label>
+            <select name="idTipoDocumento" [(ngModel)]="modeloEntidad.tipoDocumento" class="form-control">
+              <option value="" disabled>Elige un tipo de documento</option>
+              <option *ngFor="let tipoDocumento of tiposDocumento" [ngValue]="tipoDocumento">{{tipoDocumento.nombre}}</option>
+            </select>
+          </div>
+  
+          <div class="form-group">
+            <label for="nroDocumento">Número de documento:</label>
+            <input type="text" id="nroDocumento" [(ngModel)]="modeloEntidad.nroDocumento" name="nroDocumento" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="razonSocial">Razón Social:</label>
+            <input type="text" id="razonSocial" [(ngModel)]="modeloEntidad.razonSocial" name="razonSocial" class="form-control">
+          </div>
+  
+          <div class="form-group">
+            <label for="nombreComercial">Nombre Comercial:</label>
+            <input type="text" id="nombreComercial" [(ngModel)]="modeloEntidad.nombreComercial" name="nombreComercial" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="">Tipo de contribuyente</label>
+            <select name="idTipoContribuyente" [(ngModel)]="modeloEntidad.tipoContribuyente" class="form-control">
+              <option value="" disabled>Elige un tipo de contribuyente</option>
+              <option *ngFor="let tipoContribuyente of tiposContribuyente" [ngValue]="tipoContribuyente">{{tipoContribuyente.nombre}}</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" [(ngModel)]="modeloEntidad.direccion" name="direccion" class="form-control">
+          </div>
+  
+          <div class="form-group">
+            <label for="telefono">Teléfono:</label>
+            <input type="text" id="telefono" [(ngModel)]="modeloEntidad.telefono" name="telefono" class="form-control">
+          </div>
+  
+          <div class="form-group">
+            <label for="estado">Estado:</label>
+            <mat-select id="estado" [(ngModel)]="modeloEntidad.estado" name="estado" required class="form-control">
+              <mat-option [value]="0">Activo</mat-option>
+              <mat-option [value]="1">Inactivo</mat-option>
+            </mat-select>
+          </div>
+  
+
+          <div class="m-3">
+            <button class="bg-body" (click)="guardar(modeloEntidad)"><mat-icon class="text-primary ">save</mat-icon> </button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+           

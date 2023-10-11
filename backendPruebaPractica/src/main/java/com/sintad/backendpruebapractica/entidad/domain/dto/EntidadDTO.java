@@ -26,7 +26,6 @@ public class EntidadDTO {
     private TipoDocumento tipoDocumento;
 
     private TipoContribuyente tipoContribuyente;
-
     @JsonIgnore
     private Usuario usuario;
 }
